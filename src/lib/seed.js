@@ -162,7 +162,7 @@ export async function ensureSeed() {
       tenantId: northwind.id,
       taskId: cmsTask.id,
       authorId: ada.id,
-      body: "Content freeze starts Friday — please land any copy changes before then.",
+      body: "Content freeze starts Friday - please land any copy changes before then.",
       createdAt: hoursAgo(30),
     },
     {

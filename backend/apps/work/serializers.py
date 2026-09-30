@@ -77,7 +77,7 @@ class ProjectWriteSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         tenant = self.context["request"].tenant
-        # Plan quota — enforced on create only.
+        # Plan quota - enforced on create only.
         if self.instance is None:
             max_projects = tenant.max_projects
             if max_projects and tenant.projects.count() >= max_projects:

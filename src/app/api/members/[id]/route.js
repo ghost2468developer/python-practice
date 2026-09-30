@@ -26,7 +26,7 @@ async function loadMembership(membershipId, tenantId) {
   return row;
 }
 
-/** PATCH /api/members/{id}/ — change a teammate's workspace role. */
+/** PATCH /api/members/{id}/ - change a teammate's workspace role. */
 export const PATCH = route(async function PATCH(request, ctx) {
   const { user, role: actorRole, tenantId } = await guard(request, { roles: ["owner", "admin"] });
   const { id } = await ctx.params;
@@ -50,7 +50,7 @@ export const PATCH = route(async function PATCH(request, ctx) {
       .from(memberships)
       .where(and(eq(memberships.tenantId, tenantId), eq(memberships.role, "owner")));
     if (owners && owners.id === membership.id) {
-      throw badRequest("You cannot demote yourself — the workspace needs another owner first.");
+      throw badRequest("You cannot demote yourself - the workspace needs another owner first.");
     }
   }
 
@@ -79,7 +79,7 @@ export const PATCH = route(async function PATCH(request, ctx) {
   });
 });
 
-/** DELETE /api/members/{id}/ — revoke a teammate's access. */
+/** DELETE /api/members/{id}/ - revoke a teammate's access. */
 export const DELETE = route(async function DELETE(request, ctx) {
   const { user, role: actorRole, tenantId } = await guard(request, { roles: ["owner", "admin"] });
   const { id } = await ctx.params;

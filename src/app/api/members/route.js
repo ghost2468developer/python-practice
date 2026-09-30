@@ -19,7 +19,7 @@ const memberSelect = {
   userFullName: users.fullName,
 };
 
-/** GET /api/members/ — roster of the active workspace. */
+/** GET /api/members/ - roster of the active workspace. */
 export const GET = route(async function GET(request) {
   const { tenantId } = await guard(request);
   const rows = await db
@@ -33,7 +33,7 @@ export const GET = route(async function GET(request) {
 });
 
 /**
- * POST /api/members/ — invite a teammate (owner/admin).
+ * POST /api/members/ - invite a teammate (owner/admin).
  * Existing users are added straight away; unknown emails get a pending
  * invitation token which is consumed on first registration.
  */

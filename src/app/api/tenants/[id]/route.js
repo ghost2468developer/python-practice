@@ -14,7 +14,7 @@ async function loadTenant(id) {
   return tenant;
 }
 
-/** GET /api/tenants/{id}/ — workspace detail + usage statistics. */
+/** GET /api/tenants/{id}/ - workspace detail + usage statistics. */
 export const GET = route(async function GET(request, ctx) {
   const { tenantId, role } = await guard(request);
   const { id } = await ctx.params;
@@ -58,7 +58,7 @@ export const GET = route(async function GET(request, ctx) {
   });
 });
 
-/** PATCH /api/tenants/{id}/ — owner/admin workspace settings. */
+/** PATCH /api/tenants/{id}/ - owner/admin workspace settings. */
 export const PATCH = route(async function PATCH(request, ctx) {
   const { user, role, tenantId } = await guard(request, { roles: ["owner", "admin"] });
   const { id } = await ctx.params;
@@ -113,7 +113,7 @@ export const PATCH = route(async function PATCH(request, ctx) {
   return json(serializeTenant(updated));
 });
 
-/** DELETE /api/tenants/{id}/ — owner only, cascades every workspace record. */
+/** DELETE /api/tenants/{id}/ - owner only, cascades every workspace record. */
 export const DELETE = route(async function DELETE(request, ctx) {
   const { user, role, tenantId } = await guard(request, { roles: ["owner"] });
   const { id } = await ctx.params;

@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 /**
  * POST /api/auth/register/
  * Creates a user, bootstraps a workspace (tenant) and attaches the creator as
- * `owner` — the SaaS sign-up path.
+ * `owner` - the SaaS sign-up path.
  */
 export const POST = route(async function POST(request) {
   const body = await readJson(request);

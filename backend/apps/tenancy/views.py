@@ -113,7 +113,7 @@ class MembershipViewSet(TenantScopedViewSet, viewsets.ModelViewSet):
 
         if isinstance(result, Invitation):
             payload = InvitationSerializer(result, context=self.get_serializer_context()).data
-            payload["detail"] = "Invitation created — ask the teammate to register with this email."
+            payload["detail"] = "Invitation created - ask the teammate to register with this email."
             log(request, "invited_member", "invitation", result.id, f"{request.user.full_name} invited {result.email}")
             return Response(payload, status=status.HTTP_201_CREATED)
 
@@ -173,7 +173,7 @@ class InvitationViewSet(
         serializer.is_valid(raise_exception=True)
         invitation = serializer.save()
         payload = InvitationSerializer(invitation, context=self.get_serializer_context()).data
-        payload["detail"] = "Invitation created — ask the teammate to register with this email."
+        payload["detail"] = "Invitation created - ask the teammate to register with this email."
         return Response(payload, status=status.HTTP_201_CREATED)
 
     def perform_create(self, serializer):

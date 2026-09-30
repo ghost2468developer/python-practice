@@ -117,7 +117,7 @@ export const GET = route(async function GET(request) {
 
 
 
-/** POST /api/tasks/ — create a task inside a project of the active workspace. */
+/** POST /api/tasks/ - create a task inside a project of the active workspace. */
 export const POST = route(async function POST(request) {
   const { user, tenantId } = await guard(request, { roles: ["owner", "admin", "member"] });
   const body = await readJson(request);

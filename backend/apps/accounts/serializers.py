@@ -78,7 +78,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             tenant=tenant,
             name="Getting started",
             key="START",
-            description="Your first project — rename it or archive it whenever you like.",
+            description="Your first project - rename it or archive it whenever you like.",
             status=Project.Status.ACTIVE,
             owner=user,
         )
@@ -113,7 +113,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             "email": instance.email,
             "full_name": instance.full_name,
             "workspace": WorkspaceSerializer(membership).data if membership else None,
-            "detail": "Account created — exchange your credentials for a token at /api/auth/token/.",
+            "detail": "Account created - exchange your credentials for a token at /api/auth/token/.",
         }
 
 

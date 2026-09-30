@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 const TENANCY_LAYERS = [
   {
     title: "1 · Tenant is a first-class row",
-    body: "Every workspace is a `tenants` row with its own slug, plan, seat/project quotas and settings. Users never belong to a tenant directly — they reach it through a `memberships` row that carries the role.",
+    body: "Every workspace is a `tenants` row with its own slug, plan, seat/project quotas and settings. Users never belong to a tenant directly - they reach it through a `memberships` row that carries the role.",
     tag: "tenancy.Tenant",
   },
   {
@@ -17,7 +17,7 @@ const TENANCY_LAYERS = [
   },
   {
     title: "3 · Querysets are scoped, not filtered in views",
-    body: "Each viewset builds its queryset from `request.tenant.id`. There is no way to express “give me another tenant's project” — the filter is part of the queryset, so detail routes 404 instead of leaking.",
+    body: "Each viewset builds its queryset from `request.tenant.id`. There is no way to express “give me another tenant's project” - the filter is part of the queryset, so detail routes 404 instead of leaking.",
     tag: "get_queryset()",
   },
   {
@@ -39,7 +39,7 @@ const RBAC = [
 
 const MODEL_ROWS = [
   ["tenants", "id, name, slug ᵘ, plan, billing_email, max_projects, max_members, settings, timestamps", "The tenant. Cascade-owns everything below."],
-  ["users", "id, email ᵘ, full_name, password_hash, is_active, date_joined", "Global identity — shared across tenants."],
+  ["users", "id, email ᵘ, full_name, password_hash, is_active, date_joined", "Global identity - shared across tenants."],
   ["memberships", "id, tenant_id →, user_id →, role, is_default ᵘ(tenant,user)", "The join table that makes multi-tenancy possible."],
   ["invitations", "id, tenant_id →, email, role, token, status, expires_at", "Pending seat before the teammate signs up."],
   ["projects", "id, tenant_id →, name, key ᵘ(tenant,key), status, owner_id →, due_date", "Project keys are unique per tenant, not globally."],
@@ -58,22 +58,22 @@ const TREE = `backend/
     ├── work/          # Project, Task, Comment, ActivityEvent + filters
     └── common/        # base models, pagination, permissions, throttles`;
 
-const SETUP = `# 1 — install (Python 3.14+)
+const SETUP = `# 1 - install (Python 3.14+)
 python3.14 -m venv .venv && source .venv/bin/activate
 python --version          # 3.14.7
 pip install -r backend/requirements.txt
 
-# 2 — configure (or export the variables directly)
+# 2 - configure (or export the variables directly)
 export DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5432/app_db
 export DJANGO_SECRET_KEY=$(openssl rand -hex 32)
 export DJANGO_DEBUG=1
 
-# 3 — migrate, seed, run
+# 3 - migrate, seed, run
 python backend/manage.py migrate
 python backend/manage.py seed_demo
 python backend/manage.py runserver 8000
 
-# 4 — exercise the API
+# 4 - exercise the API
 curl -X POST localhost:8000/api/auth/token/ \\
   -H 'Content-Type: application/json' \\
   -d '{"email":"ada@orbit.dev","password":"demo1234"}'
@@ -82,7 +82,7 @@ curl localhost:8000/api/tasks/ -H "Authorization: Bearer $ACCESS" \\
   -H "X-Tenant-Slug: northwind-labs"`;
 
 const MAPPING = [
-  ["accounts.views.RegisterView", "POST /api/auth/register/", "CreateAPIView — user + tenant + owner membership"],
+  ["accounts.views.RegisterView", "POST /api/auth/register/", "CreateAPIView - user + tenant + owner membership"],
   ["accounts.views.LoginView", "POST /api/auth/token/", "TokenObtainPairView with tenant claims"],
   ["accounts.views.MeView", "GET/PATCH /api/auth/me/", "RetrieveUpdateAPIView"],
   ["tenancy.views.TenantViewSet", "/api/tenants/", "ModelViewSet, IsTenantMember + OwnerOnly destroy"],
@@ -149,7 +149,7 @@ export default async function Home() {
             <p className="mt-4 text-[15px] leading-relaxed text-slate-300">
               A complete Django + DRF + PostgreSQL implementation of a multi-tenant project management API: workspace
               membership and roles, JWT authentication with tenant claims, plan quotas, nested task boards, comments and a
-              per-tenant audit trail. Everything below is live — this page runs a{" "}
+              per-tenant audit trail. Everything below is live - this page runs a{" "}
               <span className="text-slate-100">byte-compatible JavaScript mirror</span> of the Django serializers so you can
               fire real requests from the browser, and the full Django project ships in{" "}
               <span className="mono text-indigo-200">backend/</span>.
@@ -289,7 +289,7 @@ export default async function Home() {
               </div>
               <pre className="mono overflow-auto text-[11.5px] leading-relaxed text-slate-300">{SETUP}</pre>
               <p className="mt-3 text-[12.5px] leading-relaxed text-slate-400">
-                Every pin declares Python 3.14 support — Django gained it in 5.2.8, and psycopg publishes cp314 wheels so
+                Every pin declares Python 3.14 support - Django gained it in 5.2.8, and psycopg publishes cp314 wheels so
                 nothing compiles from source.{" "}
                 <span className="mono text-slate-200">config/settings.py</span> refuses to boot on an older interpreter and
                 prints the commands to rebuild your virtualenv.
@@ -302,16 +302,16 @@ export default async function Home() {
               <pre className="mono overflow-auto text-[11.5px] leading-relaxed text-slate-300">{TREE}</pre>
               <ul className="mt-3 space-y-1.5 text-[12.5px] text-slate-400">
                 <li>
-                  <span className="mono text-slate-200">config/settings.py</span> — env driven, CORS, throttling,
+                  <span className="mono text-slate-200">config/settings.py</span> - env driven, CORS, throttling,
                   SimpleJWT lifetimes, drf-spectacular schema.
                 </li>
                 <li>
-                  <span className="mono text-slate-200">common/permissions.py</span> —{" "}
+                  <span className="mono text-slate-200">common/permissions.py</span> -{" "}
                   <span className="mono">IsTenantMember</span>, <span className="mono">RoleRequired</span>,{" "}
                   <span className="mono">IsTenantOwner</span>.
                 </li>
                 <li>
-                  <span className="mono text-slate-200">apps/work/tests.py</span> — cross-tenant isolation tests that prove
+                  <span className="mono text-slate-200">apps/work/tests.py</span> - cross-tenant isolation tests that prove
                   one tenant can never read or write another&apos;s rows.
                 </li>
               </ul>

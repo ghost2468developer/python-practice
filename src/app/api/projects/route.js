@@ -27,7 +27,7 @@ function keyFromName(name) {
   return letters.slice(0, 4).toUpperCase() || "PRJ";
 }
 
-/** GET /api/projects/ — tenant scoped, filterable, paginated. */
+/** GET /api/projects/ - tenant scoped, filterable, paginated. */
 export const GET = route(async function GET(request) {
   const { tenantId } = await guard(request);
   const url = new URL(request.url);
@@ -84,7 +84,7 @@ export const GET = route(async function GET(request) {
   );
 });
 
-/** POST /api/projects/ — plan quota + per-tenant unique key enforcement. */
+/** POST /api/projects/ - plan quota + per-tenant unique key enforcement. */
 export const POST = route(async function POST(request) {
   const { user, tenantId, tenant, role } = await guard(request, { roles: ["owner", "admin", "member"] });
   const body = await readJson(request);

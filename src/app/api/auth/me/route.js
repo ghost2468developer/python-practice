@@ -9,7 +9,7 @@ import { serializeUser } from "@/lib/serializers";
 
 export const dynamic = "force-dynamic";
 
-/** GET /api/auth/me/ — current user with every workspace they can reach. */
+/** GET /api/auth/me/ - current user with every workspace they can reach. */
 export const GET = route(async function GET(request) {
   const { user } = await guard(request);
   const workspaces = await listMemberships(user.id);
@@ -24,7 +24,7 @@ export const GET = route(async function GET(request) {
   });
 });
 
-/** PATCH /api/auth/me/ — update profile or rotate password. */
+/** PATCH /api/auth/me/ - update profile or rotate password. */
 export const PATCH = route(async function PATCH(request) {
   const { user } = await guard(request);
   const body = await readJson(request);

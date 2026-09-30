@@ -1,4 +1,4 @@
-# Orbit API — Multi-Tenant SaaS Project Management Backend
+# Orbit API - Multi-Tenant SaaS Project Management Backend
 
 **Python 3.14** · Django 5.2 LTS · Django REST Framework 3.18 · PostgreSQL.
 
@@ -49,8 +49,8 @@ Demo logins (password `demo1234` for all):
 | --- | --- | --- |
 | `ada@orbit.dev` | owner | owner |
 | `grace@orbit.dev` | admin | viewer |
-| `linus@orbit.dev` | member | — |
-| `margaret@orbit.dev` | viewer | — |
+| `linus@orbit.dev` | member | - |
+| `margaret@orbit.dev` | viewer | - |
 
 ## Authentication
 
@@ -114,7 +114,7 @@ so revoking a seat takes effect immediately.
 ## How isolation works
 
 1. `common.middleware.resolve_membership` runs inside
-   `perform_authentication` — before `check_permissions` — and attaches
+   `perform_authentication` - before `check_permissions` - and attaches
    `request.membership`, `request.tenant` and `request.role`. A user with no
    membership in the addressed workspace gets `403`, never a data leak.
 2. Every viewset inherits `common.views.TenantScopedViewSet` and builds its
@@ -138,7 +138,7 @@ summary aggregation.
 
 ## Deployment notes
 
-* `DATABASE_URL` is parsed into the Django `DATABASES` setting — no extra
+* `DATABASE_URL` is parsed into the Django `DATABASES` setting - no extra
   dependency needed.
 * `gunicorn config.wsgi:application` for WSGI; `config.asgi` is wired for ASGI.
 * Throttling is per tenant (`6000/h`) plus per IP for auth routes (`60/h`).

@@ -30,7 +30,7 @@ class ProjectViewSet(TenantScopedViewSet, viewsets.ModelViewSet):
     """
     /api/projects/     GET (filter, search, order, paginate) | POST
     /api/projects/{id}/  GET | PATCH | DELETE
-    /api/projects/{id}/board/  GET — grouped by status
+    /api/projects/{id}/board/  GET - grouped by status
     """
 
     permission_classes = [ReadOnlyOrRoleRequired]
@@ -197,7 +197,7 @@ class ActivityViewSet(TenantScopedViewSet, mixins.ListModelMixin, mixins.Retriev
 
 
 class SummaryViewSet(TenantScopedViewSet, mixins.ListModelMixin, viewsets.GenericViewSet):
-    """GET /api/summary/ — dashboard aggregates for the active workspace."""
+    """GET /api/summary/ - dashboard aggregates for the active workspace."""
 
     permission_classes = [IsTenantMember]
     serializer_class = ActivitySerializer

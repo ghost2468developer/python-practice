@@ -6,7 +6,7 @@ import { json, readJson, unauthorized, validationError , route } from "@/lib/htt
 
 export const dynamic = "force-dynamic";
 
-/** POST /api/auth/token/refresh/ — SimpleJWT compatible refresh endpoint. */
+/** POST /api/auth/token/refresh/ - SimpleJWT compatible refresh endpoint. */
 export const POST = route(async function POST(request) {
   const body = await readJson(request);
   const refresh = typeof body.refresh === "string" ? body.refresh.trim() : "";

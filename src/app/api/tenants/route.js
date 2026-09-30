@@ -9,7 +9,7 @@ import { serializeTenant } from "@/lib/serializers";
 
 export const dynamic = "force-dynamic";
 
-/** GET /api/tenants/ — every workspace the authenticated user belongs to. */
+/** GET /api/tenants/ - every workspace the authenticated user belongs to. */
 export const GET = route(async function GET(request) {
   const { user } = await guard(request);
   const rows = await listMemberships(user.id);
@@ -24,7 +24,7 @@ export const GET = route(async function GET(request) {
   });
 });
 
-/** POST /api/tenants/ — create an additional workspace (multi-tenant sign-up). */
+/** POST /api/tenants/ - create an additional workspace (multi-tenant sign-up). */
 export const POST = route(async function POST(request) {
   const { user } = await guard(request);
   const body = await readJson(request);

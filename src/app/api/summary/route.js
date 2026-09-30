@@ -6,7 +6,7 @@ import { guard } from "@/lib/context";
 
 export const dynamic = "force-dynamic";
 
-/** GET /api/summary/ — aggregated dashboard metrics for the active workspace. */
+/** GET /api/summary/ - aggregated dashboard metrics for the active workspace. */
 export const GET = route(async function GET(request) {
   const { user, tenantId, role, tenant } = await guard(request);
 

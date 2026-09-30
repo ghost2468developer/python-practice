@@ -508,7 +508,7 @@ export default function ApiConsole() {
                   </div>
                 ))}
                 <p className="text-[10.5px] text-slate-500">
-                  Same JWT, different rows — scoping happens server side, never in the client.
+                  Same JWT, different rows - scoping happens server side, never in the client.
                 </p>
               </div>
             ) : null}
@@ -627,7 +627,7 @@ export default function ApiConsole() {
             </button>
             {endpoint.auth && !token ? (
               <span className="text-[11px] text-amber-300">
-                This route needs a bearer token — sign in on the left first.
+                This route needs a bearer token - sign in on the left first.
               </span>
             ) : null}
           </div>

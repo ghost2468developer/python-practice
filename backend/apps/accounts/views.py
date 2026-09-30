@@ -12,7 +12,7 @@ User = get_user_model()
 
 
 class RegisterView(generics.CreateAPIView):
-    """POST /api/auth/register/ — sign up and bootstrap a workspace."""
+    """POST /api/auth/register/ - sign up and bootstrap a workspace."""
 
     serializer_class = RegisterSerializer
     permission_classes = [AllowAny]
@@ -27,7 +27,7 @@ class RegisterView(generics.CreateAPIView):
 
 
 class LoginView(TokenObtainPairView):
-    """POST /api/auth/token/ — SimpleJWT pair with tenant claims."""
+    """POST /api/auth/token/ - SimpleJWT pair with tenant claims."""
 
     serializer_class = LoginSerializer
     permission_classes = [AllowAny]

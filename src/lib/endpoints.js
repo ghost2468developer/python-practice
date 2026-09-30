@@ -5,7 +5,7 @@ export const RUNTIME = {
   drf: "3.18.1",
 };
 
-/** Locked dependency versions — all verified to support Python 3.14. */
+/** Locked dependency versions - all verified to support Python 3.14. */
 export const PINNED = {
   python: RUNTIME.pythonFull,
   Django: "5.2.17",
@@ -199,7 +199,7 @@ export const ENDPOINTS = [
     path: "/api/projects/",
     auth: true,
     roles: "owner, admin, member",
-    summary: "Create a project — enforced by the workspace plan quota.",
+    summary: "Create a project - enforced by the workspace plan quota.",
     body: { name: "Billing Migration", key: "BILL", description: "Move to usage based billing.", status: "planning" },
   },
   {
@@ -313,7 +313,7 @@ export const ENDPOINTS = [
     roles: "any",
     summary: "Comment on a task (viewers may discuss but not edit work).",
     pathParams: ["id"],
-    body: { body: "Cutover looks good — scheduling for Thursday." },
+    body: { body: "Cutover looks good - scheduling for Thursday." },
   },
   {
     id: "activity",

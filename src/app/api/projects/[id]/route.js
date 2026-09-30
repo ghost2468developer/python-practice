@@ -37,7 +37,7 @@ async function loadProject(id, tenantId) {
   };
 }
 
-/** GET /api/projects/{id}/ — detail with board columns + recent tasks. */
+/** GET /api/projects/{id}/ - detail with board columns + recent tasks. */
 import { route } from "@/lib/http";
 export const GET = route(async function GET(request, ctx) {
   const { tenantId } = await guard(request);
@@ -87,7 +87,7 @@ export const GET = route(async function GET(request, ctx) {
   });
 });
 
-/** PATCH /api/projects/{id}/ — members and above. */
+/** PATCH /api/projects/{id}/ - members and above. */
 export const PATCH = route(async function PATCH(request, ctx) {
   const { user, tenantId } = await guard(request, { roles: ["owner", "admin", "member"] });
   const { id } = await ctx.params;
@@ -141,7 +141,7 @@ export const PATCH = route(async function PATCH(request, ctx) {
   return json(serializeProject({ ...updated, owner: project.owner }));
 });
 
-/** DELETE /api/projects/{id}/ — admin and above (tasks cascade). */
+/** DELETE /api/projects/{id}/ - admin and above (tasks cascade). */
 export const DELETE = route(async function DELETE(request, ctx) {
   const { user, tenantId } = await guard(request, { roles: ["owner", "admin"] });
   const { id } = await ctx.params;

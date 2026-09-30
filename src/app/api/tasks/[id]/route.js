@@ -44,7 +44,7 @@ export const GET = route(async function GET(request, ctx) {
   return json(serializeTask(await loadTask(id, tenantId)));
 });
 
-/** PATCH /api/tasks/{id}/ — partial update, DRF ModelViewSet semantics. */
+/** PATCH /api/tasks/{id}/ - partial update, DRF ModelViewSet semantics. */
 export const PATCH = route(async function PATCH(request, ctx) {
   const { user, tenantId } = await guard(request, { roles: ["owner", "admin", "member"] });
   const { id } = await ctx.params;
@@ -111,7 +111,7 @@ export const PATCH = route(async function PATCH(request, ctx) {
   return json(serializeTask(await loadTask(updated.id, tenantId)));
 });
 
-/** DELETE /api/tasks/{id}/ — members and above. */
+/** DELETE /api/tasks/{id}/ - members and above. */
 export const DELETE = route(async function DELETE(request, ctx) {
   const { user, tenantId } = await guard(request, { roles: ["owner", "admin", "member"] });
   const { id } = await ctx.params;

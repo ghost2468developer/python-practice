@@ -1,7 +1,7 @@
 [project]
 name = "orbit-api"
 version = "1.0.0"
-description = "Multi-tenant SaaS project management API — Django REST Framework + PostgreSQL"
+description = "Multi-tenant SaaS project management API - Django REST Framework + PostgreSQL"
 requires-python = ">=3.14"
 dependencies = [
     "Django==5.2.17",

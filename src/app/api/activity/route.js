@@ -8,7 +8,7 @@ import { serializeActivity } from "@/lib/serializers";
 export const dynamic = "force-dynamic";
 
 /**
- * GET /api/activity/ — tenant scoped audit trail. Because every row carries a
+ * GET /api/activity/ - tenant scoped audit trail. Because every row carries a
  * tenant_id, one query is all it takes to keep workspaces isolated.
  */
 export const GET = route(async function GET(request) {

@@ -22,7 +22,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         if User.objects.filter(email="ada@orbit.dev").exists() and not options["force"]:
-            self.stdout.write(self.style.WARNING("Demo data already present — nothing to do."))
+            self.stdout.write(self.style.WARNING("Demo data already present - nothing to do."))
             return
 
         people = [
@@ -120,7 +120,7 @@ class Command(BaseCommand):
             tenant=northwind,
             task=tasks[1],
             author=ada,
-            body="Content freeze starts Friday — land copy changes before then.",
+            body="Content freeze starts Friday - land copy changes before then.",
         )
         Comment.objects.create(
             tenant=northwind,

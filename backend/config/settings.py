@@ -14,7 +14,7 @@ from urllib.parse import urlparse
 import dotenv
 
 # ---------------------------------------------------------------------------
-# Interpreter requirement — this project targets CPython 3.14 (built on 3.14.7).
+# Interpreter requirement - this project targets CPython 3.14 (built on 3.14.7).
 # Settings is imported by *every* entrypoint (manage.py, wsgi, asgi, gunicorn),
 # so an old virtualenv fails here with an actionable message.
 # ---------------------------------------------------------------------------
@@ -158,7 +158,7 @@ SPECTACULAR_SETTINGS = {
 }
 
 # ---------------------------------------------------------------------------
-# Multi-tenancy configuration — read by common/permissions.py and the viewsets.
+# Multi-tenancy configuration - read by common/permissions.py and the viewsets.
 # ---------------------------------------------------------------------------
 TENANCY = {
     "TENANT_HEADER": "HTTP_X_TENANT_SLUG",

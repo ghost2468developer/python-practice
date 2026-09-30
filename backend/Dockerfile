@@ -1,4 +1,4 @@
-# CPython 3.14 — matches the interpreter this project is developed against.
+# CPython 3.14 - matches the interpreter this project is developed against.
 FROM python:3.14-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
