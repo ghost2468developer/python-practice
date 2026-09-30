@@ -1,0 +1,19 @@
+# Target interpreter: CPython 3.14 (verified against 3.14.7)
+#
+# Every pin below declares Python 3.14 support:
+#   Django 5.2.x      -> 3.14 supported from 5.2.8 onwards
+#   DRF 3.18.1        -> classifiers list 3.10 - 3.14
+#   django-filter 26.1-> classifiers list 3.10 - 3.14
+#   drf-spectacular   -> classifiers list 3.10 - 3.14
+#   cors-headers 4.9  -> classifiers list 3.9  - 3.14
+#   psycopg 3.3.6     -> cp314 binary wheels are published
+# (djangorestframework-simplejwt 5.5.1 is pure Python and runs unmodified on 3.14.)
+
+Django==5.2.17
+djangorestframework==3.18.1
+djangorestframework-simplejwt==5.5.1
+django-cors-headers==4.9.0
+django-filter==26.1
+drf-spectacular==0.30.0
+psycopg[binary]==3.3.6
+python-dotenv==1.0.1
